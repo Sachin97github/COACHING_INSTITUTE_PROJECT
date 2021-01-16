@@ -25,7 +25,7 @@ public class CourseController {
 	@Autowired
 	private ICourseService service;
 		
-	@GetMapping("/course/add.htm")
+	@GetMapping("courseAdd.htm")
 	  public String  addGetCourse(@ModelAttribute("course") CourseDTO dto)
 	  {
 		  System.out.println("INSIDE GET");
@@ -34,39 +34,45 @@ public class CourseController {
 		  dto.setStartDate(new Date());
 		  return "addCourse";
 	  }
-	  @PostMapping("/course/add.htm")
+	  @PostMapping("courseAdd.htm")
 	  public String addPostCourse(@ModelAttribute("course") CourseDTO dto)
 	  {
+		  System.out.println(dto);
 		  System.out.println("INSIDE POST");
 		  service.registerCourse(dto);
-		  return "addCourse";
+		  return "succes";
 	  }	  
 	  
-	  @GetMapping("/course/delete.htm")
+	  @GetMapping("courseDelete.htm")
 	  public String deleteCourse(@RequestParam("id") Integer id)
 	  {
 		  System.out.println("DELETE COURSE");
 		  service.removeCourse(id);
 		  return "";
 		  }
-	  @GetMapping("/course/edit.htm")
+	  @GetMapping("courseEdit.htm")
 	  public String editGetCourse(@ModelAttribute("course") CourseDTO dto,@RequestParam("id") Integer id)
 	  {
 		   dto= service.showCourse(id);
 		  return "editCourse";
 	  }
-	  @PostMapping("/course/edit.htm")
+	  @PostMapping("courseEdit.htm")
 	  public String editPostCourse(@ModelAttribute("course") CourseDTO dto)
 	  {
 		   service.editCourse(dto);
 		  return "editCourse";
 	  }
-	  @GetMapping("/course/showAll.htm")
+	  @GetMapping("courseShowAll.htm")
 		public String showAll(Map<String ,Object> map)
 		{
+		  System.out.println("courseShowAll.htm");
 			List<CourseDTO> listDTO=service.allCourse();
+			System.out.println(listDTO);
+			listDTO.forEach(dto->{
+				System.out.println(dto);
+			});
 			map.put("courseList", listDTO);
-			return "showAllCourse";
+			return "allCourse";
 		}
 	  
 	  

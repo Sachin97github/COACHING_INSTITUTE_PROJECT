@@ -25,7 +25,7 @@ public class FacultyController {
 	@Autowired
 	IFacultyService service;
 
-	@GetMapping("/faculty/add.htm")
+	@GetMapping("facultyAdd.htm")
 	public String addGetFaculty(@ModelAttribute("faculty") FacultyDTO faculty) {
 		
 		faculty.setEmail("Sachin@gmail.com");
@@ -33,7 +33,7 @@ public class FacultyController {
 		return "addFaculty";
 	}
 
-	@PostMapping("/faculty/add.htm")
+	@PostMapping("facultyAdd.htm")
 	public String addPostFaculty(@ModelAttribute("faculty") FacultyDTO faculty) {
 		
 		System.out.println("INSIDE POST");
@@ -41,27 +41,27 @@ public class FacultyController {
 		service.registerFaculty(faculty);
 		return "succes";
 	}
-	@GetMapping("/faculty/delete.htm")
+	@GetMapping("facultyDelete.htm")
 	public String deleteFaculty(@RequestParam("id") Integer id)
 	{
 		service.removeFaculty(id);
 		return "succes";
 	}
 	
-	@GetMapping("/faculty/edit.htm")
+	@GetMapping("facultyEdit.htm")
 	public String editGetFaculty(@ModelAttribute("faculty") FacultyDTO faculty,@RequestParam("id") Integer id)
 	{
 	    faculty=service.showFaculty(id);
 		return "editFaculty";
 	}
-	@PostMapping("/faculty/edit.htm")
+	@PostMapping("facultyEdit.htm")
 	public String editPostFaculty(@ModelAttribute("faculty") FacultyDTO faculty)
 	{
 	    service.editFaculty(faculty);
 		return "succes";
 	}
 	
-	@GetMapping("/faculty/showAll.htm")
+	@GetMapping("facultyShowAll.htm")
 	public String showAll(Map<String ,Object> map)
 	{
 		List<FacultyDTO> listDTO=service.allFaculty();

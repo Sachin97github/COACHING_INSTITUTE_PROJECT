@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.nit.dao.IStaffDao;
 import com.nit.dto.StaffDTO;
@@ -18,6 +19,7 @@ public class StaffServiceImpl implements IStaffService{
 	private IStaffDao dao;
 
 	@Override
+	@Transactional(readOnly=false)
 	public void registerStaff(StaffDTO dto) {
 		Staff staff=new Staff();
 		BeanUtils.copyProperties(dto, staff);
@@ -25,6 +27,7 @@ public class StaffServiceImpl implements IStaffService{
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public StaffDTO showStaff(Integer id) {
 		 StaffDTO dto=new StaffDTO(	);
 		 BeanUtils.copyProperties(dao.getStaff(id), dto);
@@ -32,11 +35,13 @@ public class StaffServiceImpl implements IStaffService{
 	}
 
 	@Override
+	@Transactional(readOnly=false)
 	public void removeStaff(Integer id) {
 	   dao.deleteStaff(id);
 	}
 
 	@Override
+	@Transactional(readOnly=false)
 	public void editStaff(StaffDTO dto) {
 		Staff staff=new Staff();
 		BeanUtils.copyProperties(dto, staff);
@@ -44,6 +49,7 @@ public class StaffServiceImpl implements IStaffService{
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public List<StaffDTO> allStaff() {
 		List<StaffDTO> listDto=new ArrayList();
 		dao.allStaff().forEach(staff->{

@@ -19,7 +19,7 @@ import lombok.Data;
 @Table(name="STD_CO_IN")
 public class Student {
 	@Id
-	@GeneratedValue(generator="EMP_ID_GENERATOR")
+	@GeneratedValue(generator="STD_ID_GENERATOR")
 	@Column(name="STD_ID")
 	private Integer id;
 	private String name;

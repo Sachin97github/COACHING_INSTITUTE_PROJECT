@@ -24,7 +24,7 @@ public class StaffController {
 	@Autowired
 	private IStaffService service;
 	
-	@GetMapping("/staff/add.htm")
+	@GetMapping("staffAdd.htm")
 	public String addGetStaff(@ModelAttribute("staff") StaffDTO dto)
 	{
 		System.out.println("ADD GET STAFF");
@@ -36,7 +36,7 @@ public class StaffController {
 		dto.setDoj(new Date());
 		return "addStaff";
 	}
-	@PostMapping("/staff/add.htm")
+	@PostMapping("staffAdd.htm")
 	public String addPostStaff(@ModelAttribute("staff") StaffDTO dto)
 	{
 		System.out.println("ADD POST STAFF");
@@ -44,28 +44,28 @@ public class StaffController {
 		return "succes";
 	}
 	
-	@GetMapping("/staff/delete.htm")
+	@GetMapping("staffDelete.htm")
 	public String deleteStaff(@RequestParam("id") Integer id)
 	{
 		System.out.println("DELETE STAFF");
 		service.removeStaff(id);
 		return "succes";
 	}
-	@GetMapping("/staff/add.htm")
+	@GetMapping("staffEdit.htm")
 	public String editGetStaff(@ModelAttribute("staff") StaffDTO dto,@RequestParam("id") Integer id)
 	{
 		System.out.println("EDIT GET STAFF");
 		 dto=service.showStaff(id);
 		return "editStaff";
 	}
-	@GetMapping("/staff/add.htm")
+	@PostMapping("staffEdit.htm")
 	public String editPostStaff(@ModelAttribute("staff") StaffDTO dto,@RequestParam("id") Integer id)
 	{
 		System.out.println("EDIT POST STAFF");
 		service.editStaff(dto);
 		return "succes";
 	}
-	@GetMapping("/staff/showAll.htm")
+	@GetMapping("staffShowAll.htm")
 	public String showAll(Map<String ,Object> map)
 	{
 		List<StaffDTO> listDTO=service.allStaff();

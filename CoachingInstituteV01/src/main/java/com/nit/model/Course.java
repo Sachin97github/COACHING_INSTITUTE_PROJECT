@@ -10,23 +10,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.nit.enums.STATE;
+import com.sun.istack.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @Entity
-@Table(name="COURSE_CO_IN")
+@Table(name="COURSE_CO_IN_TWO")
+@ToString
 public class Course {
 	@Id
-	@GeneratedValue(generator="C_GEN")
-	@SequenceGenerator(name="C_GEN",sequenceName="COURSE_SEQUENCE",initialValue=100,allocationSize=1)
+	/*
+	 * @GeneratedValue(generator="C_GEN")
+	 * 
+	 * @SequenceGenerator(name="C_GEN",sequenceName="COURSE_SEQUENCE",initialValue=
+	 * 1001,allocationSize=1)
+	 */
+	@GeneratedValue(generator="COURSE_ID_GEN_TWO")
 	@Column(name="COURSE_ID")
+	@NotNull
 	private Integer id;
 	private String name;
 	private Date startDate;

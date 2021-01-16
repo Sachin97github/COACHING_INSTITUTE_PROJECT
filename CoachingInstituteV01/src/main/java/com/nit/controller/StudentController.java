@@ -25,8 +25,8 @@ public class StudentController {
 	@Autowired
 	private IStudentService service;
 
-	@GetMapping("/student/add.htm")
-	public String addGetStudent(@ModelAttribute("std") StudentDTO std) {
+	@GetMapping("studentAdd.htm")
+	public String addGetStudent(@ModelAttribute("student") StudentDTO std) {
 		System.out.println("INSIDE GET");
 		std.setName("SACHIN");
 		std.setContact(78564121l);
@@ -34,34 +34,34 @@ public class StudentController {
 		return "addStudent";
 	}
 
-	@PostMapping("/student/add.htm")
-	public String addPostStudent(@ModelAttribute("std") StudentDTO dto) {
+	@PostMapping("studentAdd.htm")
+	public String addPostStudent(@ModelAttribute("student") StudentDTO dto) {
 		System.out.println("INSIDE POST");
 		service.registerStudent(dto);
 		return "succes";
 	}
-	@GetMapping("/student/delete.htm")
+	@GetMapping("studentDelete.htm")
 	public String deleteStudent(@RequestParam("id") Integer id)
 	{
 		service.removeStudent(id);
 		return "succes";
 	}
-	
-	@GetMapping("/student/edit.htm")
-	public String editGetStudent(@ModelAttribute("std") StudentDTO dto,@RequestParam("id") Integer id)
+
+	@GetMapping("studentEdit.htm")
+	public String editGetStudent(@ModelAttribute("student") StudentDTO dto,@RequestParam("id") Integer id)
 	{
 		 dto=service.showStudent(id);
 		return "editStudent";
 	}
 	
-	@PostMapping("/student/edit.htm")
-	public String editPostStudent(@ModelAttribute("std") StudentDTO dto)
+	@PostMapping("studentEdit.htm")
+	public String editPostStudent(@ModelAttribute("student") StudentDTO dto)
 	{
 		service.editStudent(dto);
 		return "editStudent";
 	}
 
-	@GetMapping("/student/showAll.htm")
+	@GetMapping("studentShowAll.htm")
 	public String showAll(Map<String ,Object> map)
 	{
 		List<StudentDTO> listDTO=service.showAllStudent();

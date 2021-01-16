@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
   <%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <link rel="stylesheet" href="style/formStyle.css"></link>
@@ -9,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet"/>
   <style><%@include file="/WEB-INF/pages/style/navBar.css"%>
       <%@include file="/WEB-INF/pages/style/formStyle.css"%>
+         <%@include file="/WEB-INF/pages/style/dataTableStyle.css"%>
   </style>
   </head>
 <body>
@@ -24,29 +26,15 @@
             <li><a href="about.htm">about</a></li>
           </ul>
   </div> <!--Heading-navigation container-->
-
-
 <div class="container">
-<h2 style="text-align: center">Add Course</h2>
-	<frm:form cssClass="form"  modelAttribute="course" >
-<table class="form-table"  >
-	<!-- First time get and Than Post -->
-		<tr>
-			<td><label>Course Name</label></td>
-			<td><frm:input  path="name" /></td>
-		</tr>	
-		<tr>
-			<td><label>Start Date</label></td>
-			<td><frm:input type="date" path="startDate" /></td>
-		</tr>
-		<tr>
-			<td><label>Price</label></td>
-			<td><frm:input path="price" /></td>
-		</tr>
-		<tr>
-			<td colspan="2"><input type="submit" value="ADD" /></td>
-		</tr>
-</table></frm:form>
+<h2 style="text-align: center">Upcoming Course</h2>
+  
+<table class="data-table">
+        <thead>COURSE</thead>
+        <th>Sachin</th>
+    </table> 
+<!-- CHOOSE START -->
+
 </div>
 </body>
 </html>

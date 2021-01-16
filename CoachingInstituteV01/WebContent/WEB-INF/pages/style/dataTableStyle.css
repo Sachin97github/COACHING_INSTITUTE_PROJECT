@@ -1,0 +1,23 @@
+.data-table
+{
+	border:1px solid black;
+	border-collapse: collapse;border-bottom-left-radius: 10px;
+	font-family: 'Comfortaa', cursive;
+	font-size: smaller;
+	font-weight: 900;
+	margin-left:auto;
+	margin-right:auto;
+}
+.data-table th{
+	border-right: 1px solid black;
+	width:100px;
+	height: 40px;
+	background-color:f48c06 ;
+}
+.data-table td
+{
+	border: 1px solid black;
+   text-align: center;
+     width:100px;
+	height: 35px;
+}

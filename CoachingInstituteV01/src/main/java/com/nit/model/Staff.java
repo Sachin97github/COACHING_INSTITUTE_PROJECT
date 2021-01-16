@@ -38,8 +38,6 @@ public class Staff {
 	 * @MapKeyColumn(name="TYPE")
 	 */
 	private Long contact;
-
 	private LocalDate dob;
 	private LocalDate doj;
-
 }

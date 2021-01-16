@@ -1,9 +1,30 @@
-<%@page isELIgnored="false"%>
-<center>
-        <h2>Coaching 
-        Center</h2>
-    <a href="faculty.htm"> addFaculty </a>  <br>
-     <a href="staff.htm"> addStaff </a> <br>
-   <a href="course.htm"> addCourse </a> <br>
-   <a href="student/add.htm"> addStudent </a>
-</center>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+  <%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm"%>
+<html>
+<head>
+    <link rel="stylesheet" href="style/formStyle.css"></link>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet"/>
+  <style><%@include file="/WEB-INF/pages/style/navBar.css"%>
+      <%@include file="/WEB-INF/pages/style/formStyle.css"%>
+  </style>
+  </head>
+<body>
+    <div class="main-home-container">
+        <h2 class="headings">
+            Coaching Institute
+        </h2>
+        <ul class="nav-ul">
+            <li ><a class="active" href="home.htm">Home</a></li>
+            <li><a href="courseShowAll.htm">Course</a></li>
+            <li><a href="facultyAdd.htm">Faculty</a></li>
+            <li><a href="studentAdd.htm">Student</a></li>
+            <li><a href="about.htm">about</a></li>
+          </ul>
+    </div> <!--Heading-navigation container-->
+
+</body>
+
+</html>

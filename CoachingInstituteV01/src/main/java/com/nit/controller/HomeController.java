@@ -12,7 +12,7 @@ public class HomeController {
 
 	@GetMapping("home.htm")
 	public String showHome()
-	{
+	{	
 		System.out.println("home");
 		return "home";
 	}
