@@ -1,9 +1,9 @@
 .data-table
 {
 	border:1px solid black;
-	border-collapse: collapse;border-bottom-left-radius: 10px;
-	font-family: 'Comfortaa', cursive;
-	font-size: smaller;
+	border-collapse: collapse;border-bottom-left-radius: 10px; 
+	font-family: 'Poppins', sans-serif;
+	font-size: 15px;
 	font-weight: 900;
 	margin-left:auto;
 	margin-right:auto;

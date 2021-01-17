@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet"/>
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
   <style><%@include file="/WEB-INF/pages/style/navBar.css"%>
       <%@include file="/WEB-INF/pages/style/formStyle.css"%>
   </style>
@@ -27,7 +30,7 @@
 
 
 <div class="container">
-<h2 style="text-align: center">Add Course</h2>
+<h2 class="headings">Add Course</h2>
 	<frm:form cssClass="form"  modelAttribute="course" >
 <table class="form-table"  >
 	<!-- First time get and Than Post -->

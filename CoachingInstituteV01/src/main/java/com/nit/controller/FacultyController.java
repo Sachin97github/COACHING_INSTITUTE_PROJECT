@@ -66,7 +66,7 @@ public class FacultyController {
 	{
 		List<FacultyDTO> listDTO=service.allFaculty();
 		map.put("facultyList", listDTO);
-		return "showAllFaculty";
+		return "allFaculty";
 	}
 
 	@InitBinder

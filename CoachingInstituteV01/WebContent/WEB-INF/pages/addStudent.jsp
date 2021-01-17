@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet"/>
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
   <style><%@include file="/WEB-INF/pages/style/navBar.css"%>
       <%@include file="/WEB-INF/pages/style/formStyle.css"%>
             <%@include file="/WEB-INF/pages/style/bodyStyle.css"%>
@@ -14,7 +17,7 @@
   </head>
 <body>
 <div class="main-home-container">
-        <h2>
+        <h2  class="headings">
             Coaching Institute
         </h2>
         <ul class="nav-ul">
@@ -27,7 +30,7 @@
     </div> <!--Heading-navigation container-->
 
 <div class="container">
-<h2 style="text-align: center">Add Student</h2>
+<h2 class="headings">Add Student</h2>
   <frm:form cssClass="form"  modelAttribute="student" >
 <table class="form-table" style="align:center">
 		<tr>

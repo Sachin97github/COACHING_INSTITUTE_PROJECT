@@ -19,13 +19,13 @@
 <body>
 
 <div class="main-home-container">
-        <h2  class="headings">
+        <h2 class="headings">
             Coaching Institute
         </h2>
         <ul class="nav-ul">
-         <li ><a  href="home.htm">Home</a></li>
-            <li><a class="active" href="courseShowAll.htm">Course</a></li>
-            <li><a href="facultyShowAll.htm">Faculty</a></li>
+         <li ><a href="home.htm">Home</a></li>
+            <li><a href="courseShowAll.htm">Course</a></li>
+            <li><a class="active"  href="facultyShowAll.htm">Faculty</a></li>
             <li><a href="studentAdd.htm">Student</a></li>
             <li><a href="about.htm">about</a></li>
         </ul>
@@ -39,12 +39,16 @@
        <tr>
          <th>Course Id</th> 
         <th>Name</th> 
-        <th>Start Date </th>  
-        <th>Price</th>
-        <th>Faculty</th>
+        <th>Subject </th>  
+        <th>Email</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Joining Date</th>
     </tr>
-      <c:forEach var="course"  items="${courseList}">
-          <tr><td>${ course.id}</td><td>${ course.name}</td><td>${ course.startDate}</td><td>${ course.price}</td><td>${ course.facultyDTO.name}</td></tr> 
+      <c:forEach var="faculty"  items="${facultyList}">
+          <tr><td>${ faculty.id}</td><td>${ faculty.name}</td><td>${ faculty.subject}</td><td>${ faculty.email}</td><td>${ faculty.address}</td>
+            <td>${ faculty.contact}</td><td>${ faculty.doj}</td>
+          </tr> 
       </c:forEach>
    </c:when>
    <c:otherwise>
@@ -53,7 +57,6 @@
     </h2>
    </c:otherwise>
 </c:choose>
-
 </div>
 </body>
 </html>

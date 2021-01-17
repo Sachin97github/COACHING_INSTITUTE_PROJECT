@@ -48,11 +48,13 @@ public class FacultyServiceImpl implements IFacultyService {
 	}
 	
 	@Override
+	@Transactional(readOnly=false)
 	public List<FacultyDTO> allFaculty() {
 		List<FacultyDTO> list=new ArrayList();
 		 dao.allFaculty().forEach(faculty->{
 			 FacultyDTO dto=new FacultyDTO();
 			 BeanUtils.copyProperties(faculty, dto);
+			 System.out.println(dto);
 			 list.add(dto);
 		 });
 		 return list;
