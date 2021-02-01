@@ -28,14 +28,14 @@
                         <h4 class="form-heading">Add Course</h4>
   <frm:form cssClass="form"  modelAttribute="course" >
                       <div class="form-row">
-                        <label>Course Name</label><frm:input type="text" cssClass="form-input"  path="name" />
+                        <label>Course Name</label><frm:input type="text" cssClass="form-input"  path="name" required="required"/>
                      </div>
                     <div class="form-row">
-                      <label>Start Date</label><frm:input type="date" cssClass="form-input"  path="startDate" />
+                      <label>Start Date</label><frm:input type="date" cssClass="form-input"  path="startDate" required="required" />
                    </div>
                     <div class="form-row">
                       <label>Select Faculty</label> 
-                       <frm:select cssClass="form-input"  path="facultyDTO.id" >
+                       <frm:select cssClass="form-input"  path="facultyDTO.id" required="required">
                          <frm:option value="-" label="-Please Select-"/>
                            <c:forEach var="faculty"   items="${facultyList}">
                                  <frm:option value="${faculty.id} ">${faculty.name}  -  ${faculty.subject} </frm:option>
@@ -44,14 +44,14 @@
                    </div>
                    <div class="form-row">
                       <label>Set State</label>
-                     <frm:select cssClass="form-input" path="state">
-                         <frm:option value="-" label="-Please Select"/>
+                     <frm:select cssClass="form-input" path="state" required="required">
+                         <frm:option value="UPCOMING" label="-Default is upcoming-"/>
                          <frm:option value="ACTIVE">-ACTIVE-</frm:option>
                          <frm:option value="UPCOMING">-UPCOMING-</frm:option>
                      </frm:select>
                    </div>
                    <div class="form-row">
-                      <label>Price</label>  <frm:input cssClass="form-input"  path="price" />
+                      <label>Price</label>  <frm:input cssClass="form-input"  path="price" required="required"/>
                    </div>
                  <div class="form-row">
                   <button type="submit" class="form-submit">Add</button>

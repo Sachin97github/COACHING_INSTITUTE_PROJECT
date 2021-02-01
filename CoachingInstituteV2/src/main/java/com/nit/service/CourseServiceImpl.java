@@ -61,8 +61,16 @@ public class CourseServiceImpl implements ICourseService {
 	@Transactional(readOnly=false)
 	public void editCourse(CourseDTO dto) {
 		Course course=new Course();
-		BeanUtils.copyProperties(dto, course);
-		dao.updateCourse(course);		
+		Faculty faculty=new Faculty();
+		FacultyDTO fdto=dto.getFacultyDTO();
+		System.out.println("SERVICE[editCourse] "+fdto);
+		
+      BeanUtils.copyProperties(dto, course);
+      BeanUtils.copyProperties(fdto,faculty);		
+      
+      course.setFaculty(faculty);
+	dao.updateCourse(course);		
+
 	}
 
 	@Override
@@ -82,7 +90,8 @@ public class CourseServiceImpl implements ICourseService {
 			// add Faculty to Faculty DTO
 			 Faculty faculty=course.getFaculty();
 			 FacultyDTO facultyDTO=new FacultyDTO();
-			 BeanUtils.copyProperties(faculty, facultyDTO);
+			if(faculty!=null)
+			   BeanUtils.copyProperties(faculty, facultyDTO);
             dto.setFacultyDTO(facultyDTO);
             System.out.println(dto);
 			listDto.add(dto);	

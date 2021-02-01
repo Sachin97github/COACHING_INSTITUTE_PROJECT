@@ -20,5 +20,5 @@ public class CourseDTO implements Serializable{
 	private Date startDate;
 	private Double price;
 	private FacultyDTO facultyDTO;
-	private STATE state;
+	private STATE state=STATE.ACTIVE;
 }

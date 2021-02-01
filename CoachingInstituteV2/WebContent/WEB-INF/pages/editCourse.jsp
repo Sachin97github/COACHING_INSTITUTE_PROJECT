@@ -26,15 +26,18 @@
     <div class="form-div">
                         <h4 class="form-heading">Edit Course</h4>
   <frm:form cssClass="form" method = "POST" action = "courseEdit.htm" modelAttribute="course" >
+                <div class="form-row">
+                        <label>Course Name</label><frm:input type="text" cssClass="form-input"  path="id" readonly="true" />
+                     </div>
                       <div class="form-row">
-                        <label>Course Name</label><frm:input type="text" cssClass="form-input"  path="name" />
+                        <label>Course Name</label><frm:input type="text" cssClass="form-input"  path="name" required="required"/>
                      </div>
                     <div class="form-row">
-                      <label>Start Date</label><frm:input type="date" cssClass="form-input"  path="startDate" />
+                      <label>Start Date</label><frm:input type="date" cssClass="form-input"  path="startDate" required="required"/>
                    </div>
                     <div class="form-row">
                       <label>Select Faculty</label> 
-                       <frm:select cssClass="form-input"  path="facultyDTO.id" >
+                       <frm:select cssClass="form-input"  path="facultyDTO.id" required="required">
                                  <frm:option value="${facultyDTO.id }" label="${facultyDTO.name}"> </frm:option>
                            <c:forEach var="faculty"   items="${facultyList}">
                                  <frm:option value="${faculty.id} ">${faculty.name}  -  ${faculty.subject} </frm:option>
@@ -42,7 +45,7 @@
                        </frm:select>
                    </div>
                    <div class="form-row">
-                      <label>Price</label>  <frm:input cssClass="form-input"  path="price" />
+                      <label>Price</label>  <frm:input cssClass="form-input"  path="price" required="required"/>
                    </div>
                  <div class="form-row">
                   <button type="submit" class="form-submit">Edit</button>

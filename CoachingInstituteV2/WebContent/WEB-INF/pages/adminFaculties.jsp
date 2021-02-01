@@ -17,7 +17,6 @@
 	rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <style>
-
 <%@include file="/WEB-INF/pages/style/homeStyle.css"%>
             <%@include file="/WEB-INF/pages/style/container.css"%>
         <%@include file="/WEB-INF/pages/style/dataTable.css"%>
@@ -47,6 +46,11 @@
 							<th>Name</th>
 							<th>Subject</th>
 							<th>Email</th>
+						<th>Adress</th>
+						<th>Contact</th>
+						<th>Dob</th>
+						<th>Doj</th>
+						
 							<th>State</th>
 							<th>Action</th>
 						</tr>
@@ -57,8 +61,30 @@
 								<td>${ faculty.name}</td>
 								<td>${ faculty.subject}</td>
 								<td>${ faculty.email}</td>
-								<td>${ faculty.state}</td>
-								<td><a	href="facultyDelete.htm?id=${faculty.id}" class="action-links">delete</a></td>
+								<td>${ faculty.address}</td>
+								<td>${ faculty.contact}</td>
+								<td>${ faculty.dob}</td>
+								<td>${ faculty.doj}</td>
+								<td>${ faculty.state}
+								  <div> 
+										<c:choose>
+											<c:when test="${faculty.state == 'ACTIVE' }">
+												<a href="facultyChangeState.htm?facultyId=${faculty.id}&state=NOTACTIVE"
+													class="action-links">Not Active</a>
+											</c:when>
+											<c:when test="${faculty.state == 'NOTACTIVE' }">  
+												<a href="facultyChangeState.htm?facultyId=${faculty.id}&state=ACTIVE"
+													class="action-links">active</a>
+											</c:when>
+											<c:otherwise>
+											</c:otherwise>
+										</c:choose>
+									</div>
+								</td>
+								<%-- <td><a	href="facultySoftDelete.htm?id=${faculty.id}" class="action-links">Delete</a>
+								      <a	href="facultyHardDelete.htm?id=${faculty.id}" class="action-links">delete</a>
+								</td> --%>
+								<td><a	href="facultyEdit.htm?facultyId=${faculty.id}" class="action-links">edit</a></td>
 							</tr>
 						</c:forEach>
 					</table>

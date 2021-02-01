@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.nit.dao.IFacultyDao;
 import com.nit.dto.FacultyDTO;
+import com.nit.enums.STATE;
 import com.nit.model.Faculty;
 @Service
 public class FacultyServiceImpl implements IFacultyService {
@@ -34,9 +35,15 @@ public class FacultyServiceImpl implements IFacultyService {
 	}
 
 	@Override
-	@Transactional
-	public void removeFaculty(Integer id) {
-        dao.deleteFaculty(id);
+	@Transactional(readOnly=false)
+	public void softRemoveFaculty(Integer id) {
+        dao.softDeleteFaculty(id);
+	}
+	@Override
+	@Transactional(readOnly=false)
+	public void hardRemoveFaculty(Integer id)
+	{
+		dao.hardDeleteFaculty(id);
 	}
 
 	@Override
@@ -45,6 +52,12 @@ public class FacultyServiceImpl implements IFacultyService {
 		Faculty faculty=new Faculty();
 		BeanUtils.copyProperties(facultyDTO, faculty);
 		dao.updateFaculty(faculty);
+	}
+	
+	@Override
+	@Transactional(readOnly=false)
+	public void changeFacultyState(Integer id, STATE state) {
+	          dao.editState(id, state);
 	}
 	
 	@Override

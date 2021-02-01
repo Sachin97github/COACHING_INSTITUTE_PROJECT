@@ -28,22 +28,22 @@
                         <h4 class="form-heading">Add Faculty</h4>
  <frm:form cssClass="form"  modelAttribute="faculty" >
                       <div class="form-row">
-                        <label>Name</label><frm:input type="text" cssClass="form-input"  path="name" />
+                        <label>Name</label><frm:input type="text" cssClass="form-input"  path="name" required="required"/>
                      </div>
                      <div class="form-row">
-                      <label>Subject</label><frm:input type="text" cssClass="form-input"  path="subject" />
+                      <label>Subject</label><frm:input type="text" cssClass="form-input"  path="subject " required="required" />
                    </div>
                      <div class="form-row">
-                      <label>Email</label><frm:input type="email" cssClass="form-input"  path="email" />
+                      <label>Email</label><frm:input type="email" cssClass="form-input"  path="email" required="required"/>
                    </div> 
                    <div class="form-row">
-                      <label>Address</label><frm:input type="text" cssClass="form-input"  path="address" />
+                      <label>Address</label><frm:input type="text" cssClass="form-input"  path="address" required="required"/>
                    </div>
                     <div class="form-row">
-                      <label>Contact</label><frm:input type="text" cssClass="form-input"  path="contact" />
+                      <label>Contact</label><frm:input type="text" cssClass="form-input"  path="contact" required="required" />
                    </div>
                    <div class="form-row">
-                      <label>Dob</label>  <frm:input cssClass="form-input"  type="date" path="dob" />
+                      <label>Dob</label>  <frm:input cssClass="form-input"  type="date" path="dob" required="required" />
                    </div>
                  <div class="form-row">
                   <button type="submit" class="form-submit">Add</button>

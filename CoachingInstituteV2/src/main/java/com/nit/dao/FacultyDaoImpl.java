@@ -29,7 +29,7 @@ public class FacultyDaoImpl implements IFacultyDao {
 	}
 	
 	@Override
-	public void deleteFaculty(Integer id) {
+	public void softDeleteFaculty(Integer id) {
 		 ht.execute(session -> {
 			 System.out.println("INSIDE EXECUTE ");
 		      Query query = session.createQuery("UPDATE Faculty set state = :state_type where id = :id");
@@ -39,10 +39,24 @@ public class FacultyDaoImpl implements IFacultyDao {
 		    });
 		 System.out.println("DELETED");
 	}
-	
+	@Override
+	public void hardDeleteFaculty(Integer id) {
+	        ht.delete(ht.get(Faculty.class, id));
+	}	
 	@Override
 	public void updateFaculty(Faculty faculty) {
 	       ht.update(faculty);
+	}
+	
+	
+	@Override
+	public void editState(Integer id, STATE state) {
+		 ht.execute(session->{
+			 Query query=session.createQuery("update Faculty set state=:state where id=:id");
+			 query.setParameter("state", state);
+			 query.setParameter("id", id);
+			 return query.executeUpdate();
+		 });		
 	}
 
 	@Override
@@ -57,5 +71,7 @@ public class FacultyDaoImpl implements IFacultyDao {
 			criteria.add(Restrictions.in("state", STATE.ACTIVE));
 			return criteria.list();
 		});
-	}	
+	}
+
+	
 }

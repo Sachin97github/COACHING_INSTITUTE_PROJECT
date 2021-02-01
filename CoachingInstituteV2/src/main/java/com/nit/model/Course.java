@@ -50,7 +50,7 @@ public class Course {
 	 * 
 	 * @Column(name="FACULTY_ID") private Set<Integer> facultyId;
 	 */
-	@ManyToOne(targetEntity=Faculty.class,fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@ManyToOne(targetEntity=Faculty.class,fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
 	@JoinColumn(name="FACULTYID",referencedColumnName="FACULTY_ID")
 	private Faculty faculty;
 	

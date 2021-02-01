@@ -1,6 +1,6 @@
 package com.nit.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Where;
 
 import com.nit.enums.STATE;
 
@@ -48,8 +46,8 @@ public class Faculty {
 	 * 
 	 * @MapKeyColumn(name="TYPE") private Map<String,Long> contact;
 	 */ 
-	private LocalDate dob;
-	private LocalDate doj;
+	private Date dob;
+	private Date doj;
 	
 	@OneToMany(targetEntity=Course.class,fetch=FetchType.EAGER,orphanRemoval=true,cascade=CascadeType.ALL)
 	@JoinColumn(name="FACULTY_ID",referencedColumnName="FACULTY_ID")

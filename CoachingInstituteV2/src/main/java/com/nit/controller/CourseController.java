@@ -32,23 +32,21 @@ public class CourseController {
 	@GetMapping("courseAdd.htm")
 	  public String  addGetCourse(Map<String,Object> map,@ModelAttribute("course") CourseDTO dto)
 	  {
-		  System.out.println("INSIDE GET");
-		  dto.setName("Java");
-		  dto.setPrice(1000d);
-		  dto.setStartDate(new Date());
-		  return "addCourse";
+		 System.out.println("COURSE ADD GET");
+		map.put("facultyList", facultyService.showActiveFaculty());
+		 return "addCourse";
 	  }
 	  @PostMapping("courseAdd.htm")
 	  public String addPostCourse(@ModelAttribute("course") CourseDTO dto)
 	  {
 		  System.out.println(dto);
-		  System.out.println("INSIDE POST");
+		  System.out.println("COURSE ADD  POST");
 		  service.registerCourse(dto);
 		  return "redirect:courses.htm";
 	  }	  
 	  
 	  @GetMapping("courseDelete.htm")
-	  public String deleteCourse(@RequestParam("id") Integer id)
+	  public String deleteCourse(@RequestParam("courseId") Integer id)
 	  {
 		  System.out.println("DELETE COURSE "+id);
 		  service.removeCourse(id);
@@ -57,14 +55,17 @@ public class CourseController {
 	  @GetMapping("courseEdit.htm")
 	  public String editGetCourse(Map<String,Object> map,@ModelAttribute("course") CourseDTO dto,@RequestParam("courseId")Integer id)
 	  {
-			/*
-			 * CourseDTO dto1=service.showCourse(id); dto.setId(dto1.getId());
-			 * dto.setName(dto1.getName()); dto.setPrice(dto1.getPrice());
-			 * dto.setStartDate(dto1.getStartDate()); // faculty dto
-			 * dto.setFacultyDTO(dto1.getFacultyDTO()); System.out.println();
-			 * map.put("facultyList", facultyService.showActiveFaculty());
-			 * System.out.println("EDIT COURSE GET "+dto);
-			 */
+		  CourseDTO dto1=service.showCourse(id);
+		  
+		  dto.setId(dto1.getId());
+		  dto.setName(dto1.getName());
+          dto.setStartDate(dto1.getStartDate());
+          dto.setPrice(dto1.getPrice());
+          
+          FacultyDTO fdto=dto1.getFacultyDTO();
+          
+          dto.setFacultyDTO(fdto);
+         
 		  System.out.println("EDIT COURSE POST "+dto);
 		  map.put("facultyList", facultyService.showActiveFaculty());
 		  return "editCourse";
@@ -72,7 +73,11 @@ public class CourseController {
 	  @PostMapping("courseEdit.htm")
 	  public String editPostCourse(@ModelAttribute("course") CourseDTO dto)
 	  {
+		 FacultyDTO dto1=facultyService.showFaculty(dto.getFacultyDTO().getId());
+		   dto.setFacultyDTO(dto1);
 		   System.out.println("EDIT COURSE POST "+dto);
+		   
+		  service.editCourse(dto);
 		  return "redirect:courses.htm";
 	  }
 	  @GetMapping("courseShowAll.htm")
