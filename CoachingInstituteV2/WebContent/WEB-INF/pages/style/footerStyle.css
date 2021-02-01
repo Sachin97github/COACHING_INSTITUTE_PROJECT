@@ -1,0 +1,35 @@
+.footer{
+    font-family: 'Quicksand', sans-serif;
+    background-color:whitesmoke;
+    margin-top:30px;
+    
+}
+.footer-h2{
+    font-weight: 100;
+    font-size: 14px;
+   
+}
+.footer-div
+{
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-bottom: -8px;
+    display:flex;
+    justify-content:space-around;
+    height: 150px;
+    text-align: center;
+    background: black;
+    color: white;
+}
+.left-div, .right-div
+{
+    
+    float: left;
+    width: 200px;
+    height: 150px;
+}
+.info
+{
+    font-weight: 100;
+    font-size: 13px;
+}

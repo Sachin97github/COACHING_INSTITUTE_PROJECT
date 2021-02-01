@@ -1,0 +1,83 @@
+body{
+    font-family: 'Fredoka One', cursive; 
+    background-color:whitesmoke;
+}
+.header
+{
+  position: sticky;
+  top: 0px;
+  margin: -8px;
+  padding: 0px;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 6px;
+}
+.header-heading
+{
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    color: #3772ff;   
+}
+.headings
+{
+  text-align: center;
+  margin-top: 30px;
+  text-align: center;
+
+}
+.homeSubmitButton
+{
+  font-family: 'Inter', sans-serif;  
+  background-color:#3772ff ;
+  box-shadow: 1px 1px 5px black;
+ 
+  width:150px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+.home-paragraph
+{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+}
+nav
+{
+  display: flex;
+  align-items: center;
+  background-color:#3772ff;
+  height: 45px;
+}
+nav ul
+{
+  margin: 0px;
+  padding: 0px;
+}
+nav li
+{
+    font-size: 12px;
+    font-weight: 100;
+    color: white;
+   display:inline;
+   margin:20px;
+}
+nav li a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+a:hover{
+   color: black;
+}
+
+.action-links
+{
+  margin-right: 10px;
+  text-decoration: none;
+  color: green;
+}
+.action-links:hover
+{
+  text-decoration: underline;
+  color: red;
+}
