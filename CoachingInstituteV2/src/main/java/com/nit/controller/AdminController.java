@@ -57,6 +57,7 @@ public class AdminController {
 	public String showStudent(Map<String,Object> map)
 	{
 		List<StudentDTO> listDTO=studentService.showAllStudent();
+		listDTO.forEach(System.out::println);
 		map.put("studentList", listDTO);
 		return "adminStudents";
 	}

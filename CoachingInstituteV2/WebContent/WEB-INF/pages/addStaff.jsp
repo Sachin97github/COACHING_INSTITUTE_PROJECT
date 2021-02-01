@@ -22,7 +22,7 @@
    <%@include file="/WEB-INF/pages/home-sample.html"%>
 <div class="container">
     <div class="form-div">   
-                        <h4 class="form-heading">Add Faculty</h4>
+                        <h4 class="form-heading">Add Staff Member</h4>
   <frm:form cssClass="form"  modelAttribute="staff" >
    <div class="form-row">
                         <label>Name</label><frm:input type="text" cssClass="form-input"  path="name" required="required"/>

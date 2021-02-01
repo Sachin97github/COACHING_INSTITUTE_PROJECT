@@ -28,7 +28,7 @@
                         <h4 class="form-heading">Edit Faculty</h4>
  <frm:form cssClass="form"  modelAttribute="faculty" >
  <div class="form-row">
-                        <label>Name</label><frm:input type="text" cssClass="form-input"  path="id" readOnly="true"/>
+                        <label>Id</label><frm:input type="text" cssClass="form-input"  path="id" readOnly="true"/>
                      </div>
                       <div class="form-row">
                         <label>Name</label><frm:input type="text" cssClass="form-input"  path="name"  required="required"/>

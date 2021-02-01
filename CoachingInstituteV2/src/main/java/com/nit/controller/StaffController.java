@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -28,12 +29,6 @@ public class StaffController {
 	public String addGetStaff(@ModelAttribute("staff") StaffDTO dto)
 	{
 		System.out.println("ADD GET STAFF");
-		dto.setName("RAM");
-		dto.setEmail("sachin7697@yahoo.com");
-		dto.setContact(7697019105l);
-		dto.setAddress("Bhopal");
-		dto.setDob(new Date());
-		dto.setDoj(new Date());
 		return "addStaff";
 	}
 	@PostMapping("staffAdd.htm")
@@ -52,14 +47,20 @@ public class StaffController {
 		return "redirect:staffMembers.htm";
 	}
 	@GetMapping("staffEdit.htm")
-	public String editGetStaff(@ModelAttribute("staff") StaffDTO dto,@RequestParam("id") Integer id)
+	public String editGetStaff(@ModelAttribute("staff") StaffDTO dto,@RequestParam("staffId") Integer id)
 	{
 		System.out.println("EDIT GET STAFF");
-		 dto=service.showStaff(id);
+		 StaffDTO dto1=service.showStaff(id);
+		 dto.setId(dto1.getId());
+		 dto.setName(dto1.getName());
+		 dto.setAddress(dto1.getAddress());
+		 dto.setContact(dto1.getContact());
+         dto.setDob(dto1.getDob());
+         dto.setEmail(dto1.getEmail());
 		return "editStaff";
 	}
 	@PostMapping("staffEdit.htm")
-	public String editPostStaff(@ModelAttribute("staff") StaffDTO dto,@RequestParam("id") Integer id)
+	public String editPostStaff(@ModelAttribute("staff") StaffDTO dto)
 	{
 		System.out.println("EDIT POST STAFF");
 		service.editStaff(dto);

@@ -63,7 +63,9 @@
 								<td>${ staff.contact}</td>
 								<td>${ staff.dob}</td>
 								<td>${ staff.doj}</td>
-								<td><a href="staffDelete.htm?id=${staff.id}" class="action-links">delete</a></td>
+								<td><a href="staffDelete.htm?staffId=${staff.id}" class="action-links">Delete</a>
+								       <a href="staffEdit.htm?staffId=${staff.id}" class="action-links">Edit</a>
+								</td>
 							</tr>
 						</c:forEach>
 					</table>

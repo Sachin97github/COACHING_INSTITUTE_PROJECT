@@ -51,17 +51,17 @@ public class StudentServiceImpl implements IStudentService{
 	     dao.updateStudent(std);	  
 	}
 	@Override
-	@Transactional(readOnly=true)
+	@Transactional(readOnly=false)
 	public List<StudentDTO> showAllStudent() {
 		List<StudentDTO> list=new ArrayList();
 		    dao.allStudent().forEach(student->{
 		    	StudentDTO dto=new StudentDTO();
 		    	BeanUtils.copyProperties(student, dto);
+		    	dto.setCourseids(student.getCourseids());
 		    	list.add(dto);		    	
 		    });
 		return list;
 	}
-	
 	public Student copy(StudentDTO dto)
 	{
 		Student student=new Student();

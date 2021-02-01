@@ -58,7 +58,6 @@ public class StudentController {
 		 return "addStudentCourse"; 
 	}
 	
-	
 	@GetMapping("studentAddCourse.htm")
 	public String addCourseToStudent(Map<String,Object> map,@RequestParam("courseId") Integer courseId,HttpServletRequest req)
 	{
@@ -72,24 +71,29 @@ public class StudentController {
 	}    
 	
 	@GetMapping("studentDelete.htm")
-	public String deleteStudent(@RequestParam("id") Integer id)
+	public String deleteStudent(@RequestParam("staffId") Integer id)
 	{
 		System.out.println("DELETE REQUEST FOR + "+id);
 		service.removeStudent(id);
 		return "redirect:students.htm";
 	}
 	@GetMapping("studentEdit.htm")
-	public String editGetStudent(@ModelAttribute("student") StudentDTO dto,@RequestParam("id") Integer id)
+	public String editGetStudent(@ModelAttribute("student") StudentDTO dto,@RequestParam("staffId") Integer id)
 	{
-		 dto=service.showStudent(id);
+		 StudentDTO dto1=service.showStudent(id);
+		 dto.setId(dto1.getId());
+		 dto.setName(dto1.getName());
+		 dto.setAddress(dto1.getAddress());
+		 dto.setContact(dto1.getContact());
+		 dto.setEmail(dto1.getEmail());
+		 dto.setDob(dto1.getDob());		 
 		return "editStudent";
 	}
-	
 	@PostMapping("studentEdit.htm")
 	public String editPostStudent(@ModelAttribute("student") StudentDTO dto)
 	{
-		service.editStudent(dto);
-		return "editStudent";
+		service.editStudent(dto);		
+		return "redirect:students.htm";
 	}
 
 	@GetMapping("studentShowAll.htm")

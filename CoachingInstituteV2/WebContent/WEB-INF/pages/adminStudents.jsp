@@ -53,7 +53,9 @@
            <td>${ student.address}</td>
           <td>${ student.doj}</td>
           <td>${ student.dob}</td>
-          <td><a href="studentDelete.htm?id=${student.id}" class="action-links" >delete</a></td>
+          <td><a href="studentDelete.htm?staffId=${student.id}" class="action-links" >Delete</a>
+               <a href="studentEdit.htm?staffId=${student.id}" class="action-links" >Edit</a>
+          </td>
            </tr>	
       </c:forEach>
       </table>

@@ -2,6 +2,7 @@ package com.nit.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -34,10 +35,22 @@ public class StudentDaoImpl implements IStudentDao {
 	public void updateStudent(Student student) {
 	    ht.update(student);	  
 	}
-	
 	@Override
 	public List<Student> allStudent() {
-		return ht.loadAll(Student.class);
+		List<Student> list= ht.execute(session->{
+		Criteria ct=session.createCriteria(Student.class);
+		 return ct.list();
+		});
+		System.out.println("dAO");
+		list.forEach(student->{
+			    for(Integer num : student.getCourseids())
+			    {
+			    	System.out.println(num);
+			    }
+		});
+		
+		return list;
 	}
 	
+
 }

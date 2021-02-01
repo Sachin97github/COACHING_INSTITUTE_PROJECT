@@ -1,4 +1,4 @@
- <%@ page language="java"  isELIgnored="false" %>
+  <%@ page language="java"  isELIgnored="false" %>
   <%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm"%>
    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <html>
@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"> 
     <link rel="preconnect" href="https://fonts.gstatic.com">
- <style>
+<style>
       <%@include file="/WEB-INF/pages/style/homeStyle.css"%>
             <%@include file="/WEB-INF/pages/style/container.css"%>
         <%@include file="/WEB-INF/pages/style/dataTable.css"%>
@@ -22,37 +22,38 @@
 
 <body>
    <%@include file="/WEB-INF/pages/home-sample.html"%>
+   
   <div class="container">
-    <div class="form-div">
-                        <h4 class="form-heading">Edit Course</h4>
-  <frm:form cssClass="form" method = "POST" action = "courseEdit.htm" modelAttribute="course" >
-                <div class="form-row">
-                        <label>Course Id</label><frm:input type="text" cssClass="form-input"  path="id" readonly="true" />
+    <div class="form-div">   
+                        <h4 class="form-heading">Edit Staff</h4>
+ <frm:form cssClass="form"  modelAttribute="staff" >
+ <div class="form-row">
+                        <label>id</label><frm:input type="text" cssClass="form-input"  path="id" readOnly="true"/>
                      </div>
                       <div class="form-row">
-                        <label>Course Name</label><frm:input type="text" cssClass="form-input"  path="name" required="required"/>
+                        <label>Name</label><frm:input type="text" cssClass="form-input"  path="name"  required="required"/>
                      </div>
-                    <div class="form-row">
-                      <label>Start Date</label><frm:input type="date" cssClass="form-input"  path="startDate" required="required"/>
+                     <div class="form-row">
+                      <label>Email</label><frm:input type="email" cssClass="form-input"  path="email" required="required"/>
+                   </div> 
+                   <div class="form-row">
+                      <label>Address</label><frm:input type="text" cssClass="form-input"  path="address" required="required"/>
                    </div>
                     <div class="form-row">
-                      <label>Select Faculty</label> 
-                       <frm:select cssClass="form-input"  path="facultyDTO.id" required="required">
-                                 <frm:option value="${facultyDTO.id }" label="${facultyDTO.name}"> </frm:option>
-                           <c:forEach var="faculty"   items="${facultyList}">
-                                 <frm:option value="${faculty.id} ">${faculty.name}  -  ${faculty.subject} </frm:option>
-                           </c:forEach>
-                       </frm:select>
+                      <label>Contact</label><frm:input type="text" cssClass="form-input"  path="contact" required="required"/>
                    </div>
                    <div class="form-row">
-                      <label>Price</label>  <frm:input cssClass="form-input"  path="price" required="required"/>
+                      <label>Dob</label>  <frm:input cssClass="form-input"  type="date" path="dob" required="required"/>
+                   </div>
+                   <div class="form-row">
+                      <label>DoJ</label>  <frm:input cssClass="form-input"  type="date" path="doj"  readOnly="true"/>
                    </div>
                  <div class="form-row">
                   <button type="submit" class="form-submit">Edit</button>
                </div>
               </frm:form>
+              </div>
     </div> <!-- Container -->
    <%@include file="/WEB-INF/pages/footer.html"%>
 </body>
 </html>
-<!-- END -->
