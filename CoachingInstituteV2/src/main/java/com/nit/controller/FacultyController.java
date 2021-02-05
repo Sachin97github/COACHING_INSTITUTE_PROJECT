@@ -25,7 +25,7 @@ public class FacultyController {
 	@Autowired
 	IFacultyService service;
 
-	@GetMapping("facultyAdd.htm")
+	@GetMapping("/admin/faculty/add")
 	public String addGetFaculty(@ModelAttribute("faculty") FacultyDTO faculty) {
 		
 		faculty.setEmail("Sachin@gmail.com");
@@ -33,30 +33,30 @@ public class FacultyController {
 		return "addFaculty";
 	}
 
-	@PostMapping("facultyAdd.htm")
+	@PostMapping("/admin/faculty/add")
 	public String addPostFaculty(@ModelAttribute("faculty") FacultyDTO faculty) {
 		System.out.println("INSIDE POST");
 		System.out.println(faculty);
 		service.registerFaculty(faculty);
-		return "redirect:faculties.htm";
+		return "redirect:/admin/faculties";
 	}
-	@GetMapping("facultySoftDelete.htm")
+	@GetMapping("/admin/faculty/softDelete")
 	public String softDeleteFaculty(@RequestParam("id") Integer id)
 	{
 		System.out.println("FACULTY DELETE "+id);
 		service.softRemoveFaculty(id);
-		return "redirect:faculties.htm";
+		return "redirect:/admin/faculties";
 	}
-	@GetMapping("facultyHardDelete.htm")
+	@GetMapping("/admin/faculty/hardDelete")
 	public String hardDeleteFaculty(@RequestParam("id") Integer id)
 	{
 		System.out.println("FACULTY DELETE "+id);
 		service.hardRemoveFaculty(id);
-		return "redirect:faculties.htm";
+		return "redirect:/admin/faculties";
 	}
 	
 	
-	@GetMapping("facultyEdit.htm")
+	@GetMapping("/admin/faculty/edit")
 	public String editGetFaculty(@ModelAttribute("faculty") FacultyDTO dto,@RequestParam("facultyId") Integer id)
 	{
 		FacultyDTO dto1=new FacultyDTO();
@@ -74,15 +74,15 @@ public class FacultyController {
 	    System.out.println(dto);
 		return "editFaculty";
 	}
-	@PostMapping("facultyEdit.htm")
+	@PostMapping("/admin/faculty/edit")
 	public String editPostFaculty(@ModelAttribute("faculty") FacultyDTO dto)
 	{
 		System.out.println("POST EDIT FACULTY "+dto);
 		   service.editFaculty(dto);
-		return "redirect:faculties.htm";
+		return "redirect:/admin/faculties";
 	}
 	
-	  @GetMapping("facultyChangeState.htm")
+	  @GetMapping("/admin/faculty/changeState")
 	  public String changeFacultyState(@RequestParam("facultyId") Integer id,@RequestParam("state") String state_key)
 	  {
 		  STATE state;
@@ -93,17 +93,17 @@ public class FacultyController {
 		  else
 			  return "error";
 		  service.changeFacultyState(id, state);
-		  return "redirect:faculties.htm";
+		  return "redirect:/admin/faculties";
 	  }
 	
-	@GetMapping("facultyShowAll.htm")
+	@GetMapping("/admin/faculty/showAll")
 	public String showAll(Map<String ,Object> map)
 	{
 		List<FacultyDTO> listDTO=service.allFaculty();
 		map.put("facultyList", listDTO);
 		return "allFaculty";
 	}
-	@GetMapping("facultyShowActive.htm")
+	@GetMapping("/showActiveFaculties")
 	public String showActiveFaculty(Map<String ,Object> map)
 	{
 		List<FacultyDTO> listDTO=service.showActiveFaculty();

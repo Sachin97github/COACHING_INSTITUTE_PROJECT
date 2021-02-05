@@ -25,15 +25,17 @@
        <%@include file="/WEB-INF/pages/style/adminPanel.css"%> 
 </style>
 </head>
-	<%@include file="/WEB-INF/pages/home-sample.html"%>
+	
+  
+   <%@include file="/WEB-INF/pages/home-sample.jsp"%>
 	<div class="container">
 	 <diiv class="admin-controls-container">
       <h2>Panel</h2>      
-      <a class="link" href="courses.htm"><button type="submit" class="admin-control-button">Course</button><a></a>
-      <a class="link" href="faculties.htm"><button type="submit" class="admin-control-button">Faculty</button></a>
-      <a class="link" href="staffMembers.htm"><button type="submit" class="admin-control-button">Staff</button></a>
-      <a class="link" href="students.htm"><button type="submit" class="admin-control-button">Student</button></a>
-    </diiv>
+      <a class="link" href="courses"><button type="submit" class="admin-control-button">Course</button><a></a>
+      <a class="link" href="faculties"><button type="submit" class="admin-control-button">Faculty</button></a>
+      <a class="link" href="staffMembers"><button type="submit" class="admin-control-button">Staff</button></a>
+      <a class="link" href="students"><button type="submit" class="admin-control-button">Student</button></a>
+   </diiv>
 	
 		<h2 class="headings">Faculty Information</h2>
 		<div class="table-container">
@@ -69,11 +71,11 @@
 								  <div> 
 										<c:choose>
 											<c:when test="${faculty.state == 'ACTIVE' }">
-												<a href="facultyChangeState.htm?facultyId=${faculty.id}&state=NOTACTIVE"
+												<a href="faculty/changeState?facultyId=${faculty.id}&state=NOTACTIVE"
 													class="action-links">Not Active</a>
 											</c:when>
 											<c:when test="${faculty.state == 'NOTACTIVE' }">  
-												<a href="facultyChangeState.htm?facultyId=${faculty.id}&state=ACTIVE"
+												<a href="faculty/changeState?facultyId=${faculty.id}&state=ACTIVE"
 													class="action-links">active</a>
 											</c:when>
 											<c:otherwise>
@@ -84,7 +86,7 @@
 								<%-- <td><a	href="facultySoftDelete.htm?id=${faculty.id}" class="action-links">Delete</a>
 								      <a	href="facultyHardDelete.htm?id=${faculty.id}" class="action-links">delete</a>
 								</td> --%>
-								<td><a	href="facultyEdit.htm?facultyId=${faculty.id}" class="action-links">edit</a></td>
+								<td><a	href="faculty/edit?facultyId=${faculty.id}" class="action-links">edit</a></td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -96,7 +98,7 @@
 			</c:choose>
 		</div>
 		<!-- table Container -->
-		<a class="link" href="facultyAdd.htm"><button type="submit" class="admin-control-button">Add Faculty</button></a>
+		<a class="link" href="faculty/add"><button type="submit" class="admin-control-button">Add Faculty</button></a>
 	</div>
 	<!-- container -->
 	<%@include file="/WEB-INF/pages/footer.html"%>

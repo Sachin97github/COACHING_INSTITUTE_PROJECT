@@ -26,15 +26,15 @@
 </style>
 </head>
 <body>
-	<%@include file="/WEB-INF/pages/home-sample.html"%>
+   <%@include file="/WEB-INF/pages/home-sample.jsp"%>
 	<div class="container">
 	
 	    <diiv class="admin-controls-container">
       <h2>Panel</h2>      
-      <a class="link" href="courses.htm"><button type="submit" class="admin-control-button">Course</button><a></a>
-      <a class="link" href="faculties.htm"><button type="submit" class="admin-control-button">Faculty</button></a>
-      <a class="link" href="staffMembers.htm"><button type="submit" class="admin-control-button">Staff</button></a>
-      <a class="link" href="students.htm"><button type="submit" class="admin-control-button">Student</button></a>
+      <a class="link" href="courses"><button type="submit" class="admin-control-button">Course</button><a></a>
+      <a class="link" href="faculties"><button type="submit" class="admin-control-button">Faculty</button></a>
+      <a class="link" href="staffMembers"><button type="submit" class="admin-control-button">Staff</button></a>
+      <a class="link" href="students"><button type="submit" class="admin-control-button">Student</button></a>
     </diiv>
 	
 		<h2 class="headings">Courses Information</h2>
@@ -64,21 +64,21 @@
 								<div> 
 										<c:choose>
 											<c:when test="${course.state == 'ACTIVE' }">
-												<a href="courseChangeState.htm?courseId=${course.id}&state=UPCOMING"
+												<a href="course/changeState?courseId=${course.id}&state=UPCOMING"
 													class="action-links">upcoming</a>
-												<a href="courseChangeState.htm?courseId=${course.id}&state=FINISHED"
+												<a href="course/changeState?courseId=${course.id}&state=FINISHED"
 													class="action-links">finished</a>
 											</c:when>
 											<c:when test="${course.state == 'UPCOMING' }">
-												<a href="courseChangeState.htm?courseId=${course.id}&state=ACTIVE"
+												<a href="course/changeState?courseId=${course.id}&state=ACTIVE"
 													class="action-links">active</a>
-												<a href="courseChangeState.htm?courseId=${course.id}&state=FINISHED"
+												<a href="course/changeState?courseId=${course.id}&state=FINISHED"
 													class="action-links">finished</a>
 											</c:when>
 											<c:when test="${course.state == 'FINISHED' }">
-												<a href="courseChangeState.htm?courseId=${course.id}&state=ACTIVE"
+												<a href="course/changeState?courseId=${course.id}&state=ACTIVE"
 													class="action-links">active</a>
-												<a href="courseChangeState.htm?courseId=${course.id}&state=UPCOMING"
+												<a href="course/changeState?courseId=${course.id}&state=UPCOMING"
 													class="action-links">upcoming</a>
 											</c:when>
 											<c:otherwise>
@@ -87,9 +87,9 @@
 									</div>
 								</td>
 								<td>${ course.facultyDTO.name}</td>
-								<td><a href="courseDelete.htm?courseId=${course.id}"
+								<td><a href="course/delete?courseId=${course.id}"
 									class="action-links">delete</a>
-									<a href="courseEdit.htm?courseId=${course.id}"
+									<a href="course/edit?courseId=${course.id}"
 									class="action-links">edit</a>
 									</td>
 							</tr>
@@ -102,7 +102,7 @@
 			</c:choose>
 		</div>
 		<!-- table Container -->
-		<a class="link" href="courseAdd.htm"><button type="submit" class="admin-control-button">Add Course</button></a>
+		<a class="link" href="course/add"><button type="submit" class="admin-control-button">Add Course</button></a>
 	
 	</div>
 	<!-- container -->

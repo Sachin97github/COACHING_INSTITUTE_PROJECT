@@ -20,12 +20,12 @@
     </style>
   </head>
 
-<body>
-   <%@include file="/WEB-INF/pages/home-sample.html"%>
+<body>  
+   <%@include file="/WEB-INF/pages/home-sample.jsp"%>
   <div class="container">
     <div class="form-div">
                         <h4 class="form-heading">Edit Course</h4>
-  <frm:form cssClass="form" method = "POST" action = "courseEdit.htm" modelAttribute="course" >
+  <frm:form cssClass="form" method = "POST" action = "admin/courseEdit.htm" modelAttribute="course" >
                 <div class="form-row">
                         <label>Course Id</label><frm:input type="text" cssClass="form-input"  path="id" readonly="true" />
                      </div>

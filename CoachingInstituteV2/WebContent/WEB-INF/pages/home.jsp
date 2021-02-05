@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-   <%@include file="/WEB-INF/pages/home-sample.html"%>
+   <%@include file="/WEB-INF/pages/home-sample.jsp"%>
   <div class="container">
     <p class="home-paragraph"> Our Institution is best for Software Training in Java,Php,Python,C,C++,Oracle,
       <br>and Other Frameworks and Technologies
@@ -25,7 +25,7 @@
       <br> student over the india.
     </p>
     <h2 class="headings">Register Yourself</h2>
-   <form action="studentAdd.htm"> <button type="submit" class="homeSubmitButton">Become a Student</button>
+   <form action="student/add"> <button type="submit" class="homeSubmitButton">Become a Student</button>
    </form>
    <h2 class="headings">Up Coming Course</h2>
       <div class="table-container">

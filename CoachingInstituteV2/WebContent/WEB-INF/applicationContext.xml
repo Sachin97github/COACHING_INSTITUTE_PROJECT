@@ -8,6 +8,7 @@
     <import resource="persistance-beans.xml"/>
     <import resource="service-beans.xml"/>
     <import resource="aop-beans.xml"/>
+     <import resource="security-beans.xml"/>
     <context:component-scan base-package="com.nit.model"/>
 
 </beans>

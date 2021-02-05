@@ -18,15 +18,17 @@
     </style>
 </head>
 <body>
-   <%@include file="/WEB-INF/pages/home-sample.html"%>
+   
+  
+   <%@include file="/WEB-INF/pages/home-sample.jsp"%>
   <div class="container">
       <diiv class="admin-controls-container">
       <h2>Panel</h2>      
-      <a class="link" href="courses.htm"><button type="submit" class="admin-control-button">Course</button><a></a>
-      <a class="link" href="faculties.htm"><button type="submit" class="admin-control-button">Faculty</button></a>
-      <a class="link" href="staffMembers.htm"><button type="submit" class="admin-control-button">Staff</button></a>
-      <a class="link" href="students.htm"><button type="submit" class="admin-control-button">Student</button></a>
-    </diiv>
+       <a class="link" href="courses"><button type="submit" class="admin-control-button">Course</button><a></a>
+      <a class="link" href="faculties"><button type="submit" class="admin-control-button">Faculty</button></a>
+      <a class="link" href="staffMembers"><button type="submit" class="admin-control-button">Staff</button></a>
+      <a class="link" href="students"><button type="submit" class="admin-control-button">Student</button></a>
+  </diiv>
       <h2 class="headings">Students Information</h2>
       <div class="table-container">
        <c:choose>
@@ -53,8 +55,8 @@
            <td>${ student.address}</td>
           <td>${ student.doj}</td>
           <td>${ student.dob}</td>
-          <td><a href="studentDelete.htm?staffId=${student.id}" class="action-links" >Delete</a>
-               <a href="studentEdit.htm?staffId=${student.id}" class="action-links" >Edit</a>
+          <td><a href="student/delete?staffId=${student.id}" class="action-links" >Delete</a>
+               <a href="student/edit?staffId=${student.id}" class="action-links" >Edit</a>
           </td>
            </tr>	
       </c:forEach>
@@ -67,7 +69,7 @@
    </c:otherwise>
 </c:choose>	
          </div> <!-- table Container -->
- <a class="link" href="studentAdd.htm"> <button type="submit" class="admin-control-button">Add Student</button></a>
+ <a class="link" href="<%=request.getContextPath() %>/student/add"> <button type="submit" class="admin-control-button">Add Student</button></a>
     </div> <!-- container -->
    <%@include file="/WEB-INF/pages/footer.html"%>
 </body>

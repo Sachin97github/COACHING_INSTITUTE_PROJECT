@@ -19,7 +19,8 @@
   </style>
   </head>
 <body>
-   <%@include file="/WEB-INF/pages/home-sample.html"%>
+   
+   <%@include file="/WEB-INF/pages/home-sample.jsp"%>
 <div class="container">
     <div class="form-div">   
                         <h4 class="form-heading">Add Staff Member</h4>

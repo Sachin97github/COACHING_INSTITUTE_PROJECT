@@ -25,28 +25,28 @@ public class StaffController {
 	@Autowired
 	private IStaffService service;
 	
-	@GetMapping("staffAdd.htm")
+	@GetMapping("/admin/staff/add")
 	public String addGetStaff(@ModelAttribute("staff") StaffDTO dto)
 	{
 		System.out.println("ADD GET STAFF");
 		return "addStaff";
 	}
-	@PostMapping("staffAdd.htm")
+	@PostMapping("/admin/staff/add")
 	public String addPostStaff(@ModelAttribute("staff") StaffDTO dto)
 	{
 		System.out.println("ADD POST STAFF");
 		service.registerStaff(dto);
-		return "redirect:staffMembers.htm";
+		return "redirect:/admin/staffMembers";
 	}
 	
-	@GetMapping("staffDelete.htm")
+	@GetMapping("/admin/staff/delete")
 	public String deleteStaff(@RequestParam("id") Integer id)
 	{
 		System.out.println("DELETE STAFF "+id);
 		service.removeStaff(id);
-		return "redirect:staffMembers.htm";
+		return "redirect:/admin/staffMembers";
 	}
-	@GetMapping("staffEdit.htm")
+	@GetMapping("/admin/staff/edit")
 	public String editGetStaff(@ModelAttribute("staff") StaffDTO dto,@RequestParam("staffId") Integer id)
 	{
 		System.out.println("EDIT GET STAFF");
@@ -59,14 +59,14 @@ public class StaffController {
          dto.setEmail(dto1.getEmail());
 		return "editStaff";
 	}
-	@PostMapping("staffEdit.htm")
+	@PostMapping("/admin/staff/edit")
 	public String editPostStaff(@ModelAttribute("staff") StaffDTO dto)
 	{
 		System.out.println("EDIT POST STAFF");
 		service.editStaff(dto);
-		return "redirect:staffMembers.htm";
+		return "redirect:/admin/staffMembers";
 	}
-	@GetMapping("staffShowAll.htm")
+	@GetMapping("/admin/staff/showAll")
 	public String showAll(Map<String ,Object> map)
 	{
 		List<StaffDTO> listDTO=service.allStaff();

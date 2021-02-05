@@ -28,13 +28,13 @@ public class AdminController {
 	@Autowired
 	private IStaffService staffService;
 	
-	@GetMapping("adminPanel.htm")
+	@GetMapping("/admin/adminPanel")
 	public String showAdminPanel()
 	{
 		return "adminPanel";
 	}
 	
-	@GetMapping("faculties.htm")
+	@GetMapping("admin/faculties")
 	public String showFaculty(Map<String,Object> map)
 	{
 	   List<FacultyDTO> listDTO= facultyService.allFaculty();
@@ -42,7 +42,7 @@ public class AdminController {
 	  return "adminFaculties";
 	}
 
-	@GetMapping("staffMembers.htm")
+	@GetMapping("/admin/staffMembers")
 	public String showStaff(Map<String,Object> map)
 	{
 		List<StaffDTO> listDTO=staffService.allStaff();
@@ -53,7 +53,7 @@ public class AdminController {
 		return "adminStaff";
 	}
 	
-	@GetMapping("students.htm")
+	@GetMapping("/admin/students")
 	public String showStudent(Map<String,Object> map)
 	{
 		List<StudentDTO> listDTO=studentService.showAllStudent();
@@ -62,7 +62,7 @@ public class AdminController {
 		return "adminStudents";
 	}
 	
-	@GetMapping("courses.htm")
+	@GetMapping("/admin/courses")
 	public String showCourse(Map<String,Object> map)
 	{
 		List<CourseDTO> listDTO=courseService.allCourse();

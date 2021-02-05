@@ -18,12 +18,15 @@
     </style>
 </head>
 <body>
-   <%@include file="/WEB-INF/pages/home-sample.html"%>
+
+
+   <%@include file="/WEB-INF/pages/home-sample.jsp" %>
+
   <div class="container">
      
 <center>
      <h2 style="color:green"> Success </h2> <br>
-     <a href="home.htm">Home</a>
+     <a href="<%=request.getContextPath() %>/home">Home</a>
 </center>
     </div>
    <%@include file="/WEB-INF/pages/footer.html"%>

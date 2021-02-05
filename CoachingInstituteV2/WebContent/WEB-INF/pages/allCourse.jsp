@@ -18,8 +18,8 @@
   </head>
 
 <body>
- 
-   <%@include file="/WEB-INF/pages/home-sample.html"%>
+  
+   <%@include file="/WEB-INF/pages/home-sample.jsp"%>
   <div class="container">
    <h2 class="headings">Course Information</h2>
       <div class="table-container">

@@ -34,7 +34,7 @@ public class StudentController {
 	@Autowired
 	private ICourseService courseService;
 	
-	@GetMapping("studentAdd.htm")
+	@GetMapping("student/add")
 	public String addGetStudent(@ModelAttribute("student") StudentDTO std) {
 		System.out.println("INSIDE STUDENT GET");
 		std.setName("SACHIN");
@@ -43,22 +43,22 @@ public class StudentController {
 		return "addStudent";
 	}
 
-	@PostMapping("studentAdd.htm")
+	@PostMapping("student/add")
 	public String addPostStudent(@ModelAttribute("student") StudentDTO dto,HttpServletRequest req) {
 		System.out.println("INSIDE STUDENT POST");
 		req.getSession().setAttribute("currentStudentId",
 				service.registerStudent(dto));
 		System.out.println("added to Session"+dto);
-		return "redirect:addCourseToStudent.htm";
+		return "redirect:/student/showCourseList";
 	}
-	@GetMapping("addCourseToStudent.htm")
+	@GetMapping("student/showCourseList")
 	public String showCourseToAdd(Map<String,Object> map)
 	{
 		 map.put("courseList", courseService.showActiveCourse());
 		 return "addStudentCourse"; 
 	}
 	
-	@GetMapping("studentAddCourse.htm")
+	@GetMapping("student/addCourse")
 	public String addCourseToStudent(Map<String,Object> map,@RequestParam("courseId") Integer courseId,HttpServletRequest req)
 	{
 		System.out.println("studentAddCourse.htm :: "+courseId);
@@ -67,17 +67,17 @@ public class StudentController {
 		  dto.getCourseids().add(courseId);
 		 service.editStudent(dto);
 		 map.put("courseList", courseService.showActiveCourse());
-		 return "addStudentCourse";
+		 return "redirect:/student/showCourseList";
 	}    
 	
-	@GetMapping("studentDelete.htm")
+	@GetMapping("/admin/student/delete")
 	public String deleteStudent(@RequestParam("staffId") Integer id)
 	{
 		System.out.println("DELETE REQUEST FOR + "+id);
 		service.removeStudent(id);
-		return "redirect:students.htm";
+		return "redirect:/admin/students";
 	}
-	@GetMapping("studentEdit.htm")
+	@GetMapping("/admin/student/edit")
 	public String editGetStudent(@ModelAttribute("student") StudentDTO dto,@RequestParam("staffId") Integer id)
 	{
 		 StudentDTO dto1=service.showStudent(id);
@@ -89,14 +89,14 @@ public class StudentController {
 		 dto.setDob(dto1.getDob());		 
 		return "editStudent";
 	}
-	@PostMapping("studentEdit.htm")
+	@PostMapping("/admin/student/edit")
 	public String editPostStudent(@ModelAttribute("student") StudentDTO dto)
 	{
 		service.editStudent(dto);		
-		return "redirect:students.htm";
+		return "redirect:/admin/students";
 	}
 
-	@GetMapping("studentShowAll.htm")
+	@GetMapping("/admin/student/showAll")
 	public String showAll(Map<String ,Object> map)
 	{
 		List<StudentDTO> listDTO=service.showAllStudent();

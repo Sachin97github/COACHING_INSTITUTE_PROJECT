@@ -16,7 +16,7 @@ public class HomeController {
 	@Autowired
 	private ICourseService courseService;
 
-	@GetMapping("home.htm")
+	@GetMapping("home")
 	public String showHome(Map<String,Object> map)
 	{	
 		map.put("courseList", courseService.showActiveCourse());

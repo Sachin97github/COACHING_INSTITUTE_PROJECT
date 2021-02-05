@@ -21,7 +21,8 @@
   </head>
 
 <body>
-   <%@include file="/WEB-INF/pages/home-sample.html"%>
+  
+   <%@include file="/WEB-INF/pages/home-sample.jsp"%>
    
   <div class="container">
     <div class="form-div">   
@@ -31,7 +32,7 @@
                         <label>Name</label><frm:input type="text" cssClass="form-input"  path="name" required="required"/>
                      </div>
                      <div class="form-row">
-                      <label>Subject</label><frm:input type="text" cssClass="form-input"  path="subject " required="required" />
+                      <label>Subject</label><frm:input type="text" cssClass="form-input"  path="subject" required="required" />
                    </div>
                      <div class="form-row">
                       <label>Email</label><frm:input type="email" cssClass="form-input"  path="email" required="required"/>

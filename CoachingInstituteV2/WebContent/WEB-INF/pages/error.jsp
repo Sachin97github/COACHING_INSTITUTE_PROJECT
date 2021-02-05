@@ -18,7 +18,10 @@
     </style>
 </head>
 <body>
-   <%@include file="/WEB-INF/pages/home-sample.html"%>
+
+  
+   <%@include file="/WEB-INF/pages/home-sample.jsp"%>
+
   <div class="container">
      
 <center>

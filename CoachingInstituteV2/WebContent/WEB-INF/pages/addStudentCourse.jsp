@@ -26,11 +26,9 @@
  
 </style>
 </head>
-<body>
-   <%@include file="/WEB-INF/pages/home-sample.html"%>
-   
+<body>  
+   <%@include file="/WEB-INF/pages/home-sample.jsp"%> 
 	<div class="container">
-
 		<h2 class="headings">Choose Course</h2>
 		<div class="table-container">
 			<c:choose>
@@ -51,7 +49,7 @@
 								<td>${ course.startDate}</td>
 								<td>${ course.price}</td>
 								<td>${ course.facultyDTO.name}</td>
-								<td><a href="studentAddCourse.htm?courseId=${course.id}">Add</a></td>
+								<td><a href="<%=request.getContextPath() %>/student/addCourse?courseId=${course.id}">Add</a></td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -63,7 +61,7 @@
 			</c:choose>
 		</div>
 		<!-- table Container -->
-<a class="link" href="home.htm"><button type="submit" class="admin-control-button">Skip/Done</button></a> 
+<a class="link" href="<%= request.getContextPath() %>/home"><button type="submit" class="admin-control-button">Skip/Done</button></a> 
 	</div>
 	<!-- Container -->
 	<%@include file="/WEB-INF/pages/footer.html"%>

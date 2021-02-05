@@ -1,4 +1,4 @@
-  <%@ page language="java"  isELIgnored="false" %>
+ <%@ page language="java"  isELIgnored="false" %>
   <%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm"%>
    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <html>
@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"> 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<style>
+ <style>
       <%@include file="/WEB-INF/pages/style/homeStyle.css"%>
             <%@include file="/WEB-INF/pages/style/container.css"%>
         <%@include file="/WEB-INF/pages/style/dataTable.css"%>
@@ -21,40 +21,24 @@
   </head>
 
 <body>
-   
-  
+ 
    <%@include file="/WEB-INF/pages/home-sample.jsp"%>
   <div class="container">
-    <div class="form-div">   
-                        <h4 class="form-heading">Edit Staff</h4>
- <frm:form cssClass="form"  modelAttribute="staff" >
- <div class="form-row">
-                        <label>id</label><frm:input type="text" cssClass="form-input"  path="id" readOnly="true"/>
-                     </div>
+    <div class="form-div">
+                        <h4 class="form-heading">Login</h4>
+               <form  action="<%= request.getContextPath()%>/login" method="post" >
                       <div class="form-row">
-                        <label>Name</label><frm:input type="text" cssClass="form-input"  path="name"  required="required"/>
+                        <label>Username</label><input type="text" class="form-input"  name="username" required="required"/>
                      </div>
-                     <div class="form-row">
-                      <label>Email</label><frm:input type="email" cssClass="form-input"  path="email" required="required"/>
-                   </div> 
-                   <div class="form-row">
-                      <label>Address</label><frm:input type="text" cssClass="form-input"  path="address" required="required"/>
-                   </div>
                     <div class="form-row">
-                      <label>Contact</label><frm:input type="text" cssClass="form-input"  path="contact" required="required"/>
-                   </div>
-                   <div class="form-row">
-                      <label>Dob</label>  <frm:input cssClass="form-input"  type="date" path="dob" required="required"/>
-                   </div>
-                   <div class="form-row">
-                      <label>DoJ</label>  <frm:input cssClass="form-input"  type="date" path="doj"  readOnly="true"/>
+                      <label>Password</label><input type="password" class="form-input" name="password" required="required" />
                    </div>
                  <div class="form-row">
-                  <button type="submit" class="form-submit">Edit</button>
+                  <button type="submit" class="form-submit">Login</button>
                </div>
-              </frm:form>
-              </div>
+              </form>
     </div> <!-- Container -->
    <%@include file="/WEB-INF/pages/footer.html"%>
 </body>
 </html>
+<!-- END -->

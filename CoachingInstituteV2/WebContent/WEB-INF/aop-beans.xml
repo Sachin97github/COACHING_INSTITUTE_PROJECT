@@ -3,8 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<context:component-scan base-package="com.nt.service" />
@@ -14,7 +16,19 @@
   <constructor-arg ref="ds"/>
  </bean>
  <tx:annotation-driven transaction-manager="dsTxMgmr"/>
- 
- 
-
+ <!-- AOP -->
+   <bean id="loggerAspect" class="com.nit.aspect.ActivityLoggerAspect"/>
+   <bean id="securityAspect" class="com.nit.aspect.SecurityCheckAspect"/>
+   
+ <aop:config>
+   
+<!--   <aop:pointcut expression="execution(* com.nit.service.*.*(..))" id="ptc"/>
+    <aop:aspect ref="loggerAspect">
+      <aop:before method="logger" pointcut-ref="ptc"/>
+    </aop:aspect> 
+     <aop:aspect ref="securityAspect">
+      <aop:before method="checkLogin" pointcut-ref="ptc"/>
+    </aop:aspect>  -->
+    
+ </aop:config>
 </beans>

@@ -29,30 +29,30 @@ public class CourseController {
 	@Autowired
 	private IFacultyService facultyService;
 		
-	@GetMapping("courseAdd.htm")
+	@GetMapping("/admin/course/add")
 	  public String  addGetCourse(Map<String,Object> map,@ModelAttribute("course") CourseDTO dto)
 	  {
 		 System.out.println("COURSE ADD GET");
 		map.put("facultyList", facultyService.showActiveFaculty());
 		 return "addCourse";
 	  }
-	  @PostMapping("courseAdd.htm")
+	  @PostMapping("/admin/course/add")
 	  public String addPostCourse(@ModelAttribute("course") CourseDTO dto)
 	  {
 		  System.out.println(dto);
 		  System.out.println("COURSE ADD  POST");
 		  service.registerCourse(dto);
-		  return "redirect:courses.htm";
+		  return "redirect:/admin/course";
 	  }	  
 	  
-	  @GetMapping("courseDelete.htm")
+	  @GetMapping("/admin/course/delete")
 	  public String deleteCourse(@RequestParam("courseId") Integer id)
 	  {
 		  System.out.println("DELETE COURSE "+id);
 		  service.removeCourse(id);
-		  return "redirect:courses.htm";
+		  return "redirect:/admin/course";
 		  }
-	  @GetMapping("courseEdit.htm")
+	  @GetMapping("/admin/course/edit")
 	  public String editGetCourse(Map<String,Object> map,@ModelAttribute("course") CourseDTO dto,@RequestParam("courseId")Integer id)
 	  {
 		  CourseDTO dto1=service.showCourse(id);
@@ -63,14 +63,12 @@ public class CourseController {
           dto.setPrice(dto1.getPrice());
           
           FacultyDTO fdto=dto1.getFacultyDTO();
-          
-          dto.setFacultyDTO(fdto);
-         
+          dto.setFacultyDTO(fdto);         
 		  System.out.println("EDIT COURSE POST "+dto);
 		  map.put("facultyList", facultyService.showActiveFaculty());
 		  return "editCourse";
 	  }
-	  @PostMapping("courseEdit.htm")
+	  @PostMapping("/admin/course/edit")
 	  public String editPostCourse(@ModelAttribute("course") CourseDTO dto)
 	  {
 		 FacultyDTO dto1=facultyService.showFaculty(dto.getFacultyDTO().getId());
@@ -78,12 +76,12 @@ public class CourseController {
 		   System.out.println("EDIT COURSE POST "+dto);
 		   
 		  service.editCourse(dto);
-		  return "redirect:courses.htm";
+		  return "redirect:/admin/course";
 	  }
-	  @GetMapping("courseShowAll.htm")
+	  @GetMapping("/admin/course/showAll")
 		public String showAll(Map<String ,Object> map)
 		{
-		  System.out.println("courseShowAll.htm");
+		  System.out.println("/admin/courseShowAll.htm");
 			List<CourseDTO> listDTO=service.allCourse();
 			System.out.println(listDTO);
 			listDTO.forEach(dto->{
@@ -93,7 +91,7 @@ public class CourseController {
 			return "allCourse";
 		}
 	  
-	  @GetMapping("showActiveCourses.htm")
+	  @GetMapping("showActiveCourses")
 		public String showActiveCourse(Map<String ,Object> map)
 		{
 		  System.out.println("courseShowAll.htm");
@@ -102,7 +100,7 @@ public class CourseController {
 			return "allCourse";
 		}
 	  
-	  @GetMapping("courseChangeState.htm")
+	  @GetMapping("/admin/course/changeState")
 	  public String changeCourseState(@RequestParam("courseId") Integer id,@RequestParam("state") String state_key)
 	  {
 		  STATE state;
@@ -115,7 +113,7 @@ public class CourseController {
 		  else
 			  return "error";
 		  service.changeCourseState(id,state);
-		  return "redirect:courses.htm";
+		  return "redirect:/admin/course";
 	  }
 	  
 		 @InitBinder

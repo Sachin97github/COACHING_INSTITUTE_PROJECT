@@ -17,14 +17,14 @@
     </style>
 </head>
 <body>
-   <%@include file="/WEB-INF/pages/home-sample.html"%>
+   <%@include file="/WEB-INF/pages/home-sample.jsp"%>
   <div class="container">
          <diiv class="admin-controls-container">
       <h2> Admin Panel</h2>      
-      <a class="link" href="courses.htm"><button type="submit" class="admin-control-button">Course</button><a></a>
-      <a class="link" href="faculties.htm"><button type="submit" class="admin-control-button">Faculty</button></a>
-      <a class="link" href="staffMembers.htm"><button type="submit" class="admin-control-button">Staff</button></a>
-      <a class="link" href="students.htm"><button type="submit" class="admin-control-button">Student</button></a>
+      <a class="link" href="course"><button type="submit" class="admin-control-button">Course</button><a></a>
+      <a class="link" href="faculties"><button type="submit" class="admin-control-button">Faculty</button></a>
+      <a class="link" href="staffMembers"><button type="submit" class="admin-control-button">Staff</button></a>
+      <a class="link" href="students"><button type="submit" class="admin-control-button">Student</button></a>
     </diiv>
     </div> <!-- container -->
    <%@include file="/WEB-INF/pages/footer.html"%>
